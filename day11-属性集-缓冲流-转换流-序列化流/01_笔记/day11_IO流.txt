@@ -1,0 +1,64 @@
+反馈
+    90 -- 45
+内容回顾：
+	1.File类
+		使用场景：要想在java程序中操作文件或文件夹就需要创建一个File对象
+		构造方法：
+			new File(String path);  //path 文件或文件夹的完整路径【绝对路径|相对路径】
+			new File(String parent,String child);
+		使用：
+			创建功能：createNewFile() mkdir() mkdirs()
+			获取功能：getAbsolutePath() getPath() getName() length()
+			判断功能：exists() isFile() isDirectory()
+			删除功能：delete()
+			遍历目录：list() listFiles()
+	2.递归
+		概念：在自己方法内部调用自己的现象
+		使用场景：循环执行同一功能 操作的对象有所改变
+		写递归：
+			出口：递归何时结束
+			规律：什么时候使用递归
+	
+	3.IO流【重点】
+		概念：如何在程序中进行读写文件  相对于内存作为基准 
+			将文件从硬盘中加载到内存中  就是一个输入流 用于读取文件数据
+			将数据从内存中写入到硬盘中  就是一个输出流 用于向文件中写入数据
+		流的分类：
+			字节流：
+				字节输入流：FileInputStream
+				字节输出流：FileOutputStream
+			
+			字符流：
+				字符输入流：FileReader
+				字符输出流：FileWriter
+		使用场景：
+			1.读文件数据 使用输入流  向硬盘文件中写入数据使用输出流
+			2.读写二进制文件(图片、视频...)使用字节流  读写文本(txt)使用字符流
+		具体使用：
+			1.创建流对象  关联文件【读哪个文件  向哪个文件写入数据】
+			2.执行读写操作
+				读：read()
+				写：write()
+			3.关闭流 释放资源
+				close
+	java学习：
+		java面向对象编程：找个对象帮你做事
+		使用：
+			1.找类【编写类】
+			2.创建对象
+			3.调用方法
+流的小结：
+	使用套路：
+		1.要操作的是二进制文件还是文本文件
+			二进制文件：字节流
+			文本文件：字符流
+		2.要进行什么操作
+			读：输入流  read()
+			写：输出流  write()
+		3.提高读写效率，【使用缓冲数组 减少硬盘和内存的交互次数】  使用缓冲流	BufferedXxx
+		4.中文乱码  【文件在编码和解码时采用的字符编码集不一致出现中文乱码 解决：保证编码解码字符集一致即可】 
+			4.1：使用字符流读写										FileReader|FileWriter
+			4.2：使用转换流【以指定编码方式进行文本文件的读写】		InputStreamReader|OutputStreamWriter
+		5.读写对象字节数据到文件中  使用序列化流和反序列化流  		ObjectOutputStream|ObjectInputStream
+        6.直接写任意类型数据到文件中 使用打印流 					printStream		
+			
